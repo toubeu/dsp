@@ -138,6 +138,9 @@ class Window(Frame):
 # resolution
 root.geometry("800x700")
 
+#set background color
+root.config(bg='cadetblue1')
+
 # creation of an instance of window
 app = Window(root)
 
