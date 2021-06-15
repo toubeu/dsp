@@ -24,15 +24,11 @@ class Window(Frame):
         # changing the title of our master widget
         self.master.title("Audio Steganography")
 
-        # allowing the widget to take the full space of the root window
-
-        self.pack(fill=BOTH, expand=1)
-
-
 
         self.drawEnocoding()
         self.drawDecoding()
-
+    def drawToplevel(self):
+        self.toplevel=Toplevel(root,bg='cadetblue1')
     def drawEnocoding(self):
         # encode Label
         self.encodeVar = StringVar()
@@ -46,7 +42,7 @@ class Window(Frame):
         self.encodingOptionsMenu = OptionMenu(root, self.optionsVar, "Least Significant Bit", "Phase Coding")
         self.encodingOptionsMenu.place(x=20, y=100)
         # creating a button instance
-        self.selectFileButton = Button(self, text="Select File  To Encode", command=self.selectFile)
+        self.selectFileButton = Button(root, text="Select File  To Encode", command=self.selectFile)
         self.selectFileButton.place(x=20, y=140)
 
         # file location label
@@ -60,7 +56,7 @@ class Window(Frame):
         self.entryText.place(x=20, y=220)
         self.entryText.insert(0, "Enter text here")
         # encode Button
-        self.encodeButton = Button(self, text="Encode", command=self.encode)
+        self.encodeButton = Button(root, text="Encode", command=self.encode)
         self.encodeButton.place(x=20, y=260)
 
         # encoded  location label
@@ -82,7 +78,7 @@ class Window(Frame):
         self.decodingOptionsMenu = OptionMenu(root, self.decodeOptionsVar, "Least Significant Bit", "Phase Coding")
         self.decodingOptionsMenu.place(x=500, y=100)
         # creating a button instance
-        self.selectFileDecodeButton = Button(self, text="Select  File To Decode ", command=self.selectFileDecode)
+        self.selectFileDecodeButton = Button(root, text="Select  File To Decode ", command=self.selectFileDecode)
         self.selectFileDecodeButton.place(x=500, y=140)
         #
         # file location label
@@ -90,7 +86,7 @@ class Window(Frame):
         self.decodeFileLabel = Label(root, textvariable=self.decodeFileVar, relief=RAISED)
         self.decodeFileLabel.place(x=500, y=180)
 
-        self.decodeButton = Button(self, text="Decode", command=self.decode)
+        self.decodeButton = Button(root, text="Decode", command=self.decode)
         self.decodeButton.place(x=500, y=260)
         #
         # decoded text label
